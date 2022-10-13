@@ -1,0 +1,31 @@
+.Post {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: 1rem;
+  gap: 1rem;
+
+  /* border: solid 1px grey; */
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 5px 2px 15px -4px #000000;
+  box-shadow: 5px 2px 15px -4px #000000;
+}
+.Post > img {
+  width: 100%;
+  max-height: 20rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.postReact {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.btnLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userName {
+  font-weight: bold;
+}
