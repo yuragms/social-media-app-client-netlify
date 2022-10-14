@@ -1,5 +1,5 @@
 import { Modal, useMantineTheme } from "@mantine/core";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { useState } from "react";
 import { uploadImage } from "../../actions/uploadAction";
