@@ -18,8 +18,8 @@
 }
 .postReact {
   display: flex;
-  /* align-items: flex-start; */
-  align-items: start;
+  align-items: flex-start;
+  /* align-items: start; */
   gap: 1.5rem;
 }
 .btnLine {
