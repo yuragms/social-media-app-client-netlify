@@ -12,17 +12,17 @@ const Posts = () => {
   let { posts, loading } = useSelector((state) => state.postReducer);
   const params = useParams();
 
-  // useEffect(() => {
-  //   console.log("useEffect-Posts.jsx");
-  //   console.log(user._id);
-  //   dispatch(getTimelinePosts(user._id));
-  // }, []);
-
   useEffect(() => {
     console.log("useEffect-Posts.jsx");
     console.log(user._id);
     dispatch(getTimelinePosts(user._id));
-  }, [user._id]);
+  }, []);
+
+  // useEffect(() => {
+  //   console.log("useEffect-Posts.jsx");
+  //   console.log(user._id);
+  //   dispatch(getTimelinePosts(user._id));
+  // }, [user._id]);
 
   console.log(posts);
   if (!posts) return "No posts";
