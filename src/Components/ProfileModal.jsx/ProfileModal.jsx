@@ -14,7 +14,7 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
   const dispatch = useDispatch();
   const param = useParams();
 
-  const { user } = useSelector((state) => state.authReducer.authData);
+  // const { user } = useSelector((state) => state.authReducer.authData);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -67,7 +67,7 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
     const updateUserMongo = () => {
       dispatch(updateUser(param.id, UserData));
     };
-    setTimeout(updateUserMongo, 1500);
+    setTimeout(updateUserMongo, 1300);
 
     clearTimeout(updateUserMongo);
 
