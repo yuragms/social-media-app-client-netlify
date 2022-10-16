@@ -11,6 +11,7 @@ import { deletePost } from "../../actions/postsAction";
 const Post = ({ data }) => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.authReducer.authData);
+  const { allUsers } = useSelector((state) => state.allUsersReducer);
   const [liked, setLiked] = useState(data.likes.includes(user._id));
   const [likes, setLikes] = useState(data.likes.length);
 
@@ -26,10 +27,12 @@ const Post = ({ data }) => {
     dispatch(deletePost(data._id));
   };
 
+  const avtor = allUsers.find((person) => person._id === data.userId);
+  console.log(avtor);
   return (
     <div className="Post">
       <div className="userName">
-        {user.firstname} {user.lastname}
+        {avtor.firstname} {avtor.lastname}
       </div>
       <img
         src={data.image ? process.env.REACT_APP_PUBLIC_FOLDER + data.image : ""}

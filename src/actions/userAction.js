@@ -37,6 +37,17 @@ export const unFollowUser = (id, user) => async (dispatch) => {
   }
 };
 
+export const getAllUsers = () => async (dispatch) => {
+  dispatch({ type: "GET_ALL_USERS_START" });
+  try {
+    const { data } = await UserApi.getAllUsers();
+    console.log(data);
+    dispatch({ type: "GET_ALL_USERS_SUCCESS", data: data });
+  } catch (error) {
+    dispatch({ type: "GET_ALL_USERS_FAIL" });
+  }
+};
+
 //version ZainRk do not work if espire token
 // export const followUser = (id, data) => async (dispatch) => {
 //   dispatch({ type: "FOLLOW_USER" });
