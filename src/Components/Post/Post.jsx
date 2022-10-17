@@ -29,11 +29,21 @@ const Post = ({ data }) => {
 
   const avtor = allUsers.find((person) => person._id === data.userId);
   console.log(avtor);
+
+  const dateCreatePost = () => {
+    const day = data.createdAt.slice(8, 10);
+    const month = data.createdAt.slice(5, 7);
+    const year = data.createdAt.slice(0, 4);
+
+    return day + "-" + month + "-" + year;
+  };
+
   return (
     <div className="Post">
       <div className="userName">
-        {/* {avtor.firstname} {avtor.lastname} */}
-        {loading ? "Fetching Posts..." : `${avtor.firstname} ${avtor.lastname}`}
+        {loading
+          ? "Fetching Posts..."
+          : `${avtor.firstname} ${avtor.lastname} ${dateCreatePost()}`}
       </div>
       <img
         src={data.image ? process.env.REACT_APP_PUBLIC_FOLDER + data.image : ""}
