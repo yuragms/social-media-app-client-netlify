@@ -80,7 +80,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
       // setMessages([...messages, recieveMessage]);
       setMessages((prev) => prev, recieveMessage);
     }
-  }, [recieveMessage, chat._id]);
+  }, [recieveMessage]);
 
   const scroll = useRef();
   const imageRef = useRef();
