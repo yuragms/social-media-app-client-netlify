@@ -16,7 +16,7 @@ const Posts = () => {
     console.log("useEffect-Posts.jsx");
     console.log(user._id);
     dispatch(getTimelinePosts(user._id));
-  }, []);
+  }, [dispatch, user._id]);
 
   // useEffect(() => {
   //   console.log("useEffect-Posts.jsx");

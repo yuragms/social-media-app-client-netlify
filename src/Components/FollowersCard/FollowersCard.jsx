@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./FollowersCard.css";
 import User from "../User/User";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,13 +8,12 @@ const FollowersCard = () => {
   const { user } = useSelector((state) => state.authReducer.authData);
   const { allUsers, loading } = useSelector((state) => state.allUsersReducer);
   const dispatch = useDispatch();
-
   useEffect(() => {
     const fetchPersons = async () => {
       dispatch(getAllUsers());
     };
     fetchPersons();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="FollowersCard">
