@@ -31,9 +31,7 @@ const Post = ({ data }) => {
   console.log(avtor);
   return (
     <div className="Post">
-      <div className="userName">
-        {avtor.firstname} {avtor.lastname}
-      </div>
+      <div className="userName">{/* {avtor.firstname} {avtor.lastname} */}</div>
       <img
         src={data.image ? process.env.REACT_APP_PUBLIC_FOLDER + data.image : ""}
         alt=""
