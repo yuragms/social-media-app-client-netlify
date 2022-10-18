@@ -28,7 +28,7 @@ export const followUser = (id, user) => async (dispatch) => {
 };
 
 export const unFollowUser = (id, user) => async (dispatch) => {
-  dispatch({ type: "UNFOLLOW_START" });
+  dispatch({ type: "UNFOLLOW_USER_START" });
   try {
     const { data } = await UserApi.unFollowUser(id, user);
     dispatch({ type: "UNFOLLOW_USER_SUCCESS", data: data });

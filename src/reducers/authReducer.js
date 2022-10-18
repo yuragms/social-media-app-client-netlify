@@ -4,6 +4,7 @@ const authReducer = (
     loading: false,
     error: false,
     updaateLoading: true,
+    following: false,
   },
   action
 ) => {
@@ -36,7 +37,7 @@ const authReducer = (
         error: true,
       };
     case "FOLLOW_USER_START":
-      return { ...state };
+      return { ...state, following: true };
 
     case "FOLLOW_USER_SUCCESS":
       return {
@@ -48,14 +49,21 @@ const authReducer = (
             following: [...state.authData.user.following, action.data],
           },
         },
+        following: false,
       };
     case "FOLLOW_USER_FAIL":
       console.log("Not Update Folloving action, maybe not valid token");
       localStorage.clear();
-      return { ...state, authData: null, loading: false, error: false };
+      return {
+        ...state,
+        authData: null,
+        loading: false,
+        error: false,
+        following: false,
+      };
 
     case "UNFOLLOW_USER_START":
-      return { ...state };
+      return { ...state, following: true };
 
     case "UNFOLLOW_USER_SUCCESS":
       return {
@@ -71,15 +79,28 @@ const authReducer = (
             ],
           },
         },
+        following: false,
       };
     case "UNFOLLOW_USER_FAIL":
       console.log("Not Update Folloving action, maybe not valid token");
       localStorage.clear();
-      return { ...state, authData: null, loading: false, error: false };
+      return {
+        ...state,
+        authData: null,
+        loading: false,
+        error: false,
+        following: false,
+      };
 
     case "LOG_OUT":
       localStorage.clear();
-      return { ...state, authData: null, loading: false, error: false };
+      return {
+        ...state,
+        authData: null,
+        loading: false,
+        error: false,
+        following: false,
+      };
     default:
       return state;
   }

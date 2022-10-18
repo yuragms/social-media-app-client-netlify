@@ -83,7 +83,7 @@
 }
 .Error {
   color: red;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   animation-name: error;
   animation-duration: 2s;
 }

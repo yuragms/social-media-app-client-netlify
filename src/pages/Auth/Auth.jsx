@@ -21,6 +21,7 @@ const Auth = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch({ type: "RESET_AUTH_ERROR" });
 
     if (isSignUp) {
       data.password === data.confirmpass
@@ -126,6 +127,8 @@ const Auth = () => {
                   ? isSignUp
                     ? "username is already registred!"
                     : "password not valid for this username"
+                  : error === 500
+                  ? "Please fill in all fields"
                   : error}
               </p>
             )}

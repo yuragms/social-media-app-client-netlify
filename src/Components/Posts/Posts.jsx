@@ -9,6 +9,7 @@ import { useParams } from "react-router";
 const Posts = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.authReducer.authData);
+  const { following } = useSelector((state) => state.authReducer);
   let { posts, loading } = useSelector((state) => state.postReducer);
   const params = useParams();
 
@@ -16,7 +17,7 @@ const Posts = () => {
     console.log("useEffect-Posts.jsx");
     console.log(user._id);
     dispatch(getTimelinePosts(user._id));
-  }, [dispatch, user._id]);
+  }, [user._id, following]);
 
   // useEffect(() => {
   //   console.log("useEffect-Posts.jsx");
