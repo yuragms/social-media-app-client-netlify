@@ -6,11 +6,13 @@ import Profile from "./pages/Profile/Profile";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Chat from "./pages/Chat/Chat";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const user = useSelector((state) => state.authReducer.authData);
   return (
     <div className="App">
+      <Toaster />
       <div className="blur" style={{ top: "-18%", right: "0" }}></div>
       <div className="blur" style={{ top: "36%", left: "-8rem" }}></div>
       <Routes>

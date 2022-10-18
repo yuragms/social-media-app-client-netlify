@@ -8,6 +8,7 @@ import { UilSchedule } from "@iconscout/react-unicons";
 import { UilTimes } from "@iconscout/react-unicons";
 import { useSelector, useDispatch } from "react-redux";
 import { uploadImage, uploadPost } from "../../actions/uploadAction";
+import toast from "react-hot-toast";
 
 const PostShare = () => {
   const upLoading = useSelector((state) => state.postReducer.uploading);
@@ -32,33 +33,36 @@ const PostShare = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const newPost = {
-      userId: user._id,
-      desc: desc.current.value,
-    };
-    if (image) {
-      const data = new FormData();
-      const filename = "posts/" + Date.now() + image.name;
-      data.append("name", filename);
-      data.append("file", image);
-      newPost.image = filename;
-      console.log(newPost);
-      try {
-        dispatch(uploadImage(data));
-      } catch (error) {
-        console.log(error);
+    if (!desc.current.value) {
+      toast.error("Please fill input field and select your picture");
+    } else {
+      const newPost = {
+        userId: user._id,
+        desc: desc.current.value,
+      };
+      if (image) {
+        const data = new FormData();
+        const filename = "posts/" + Date.now() + image.name;
+        data.append("name", filename);
+        data.append("file", image);
+        newPost.image = filename;
+        console.log(newPost);
+        try {
+          dispatch(uploadImage(data));
+        } catch (error) {
+          console.log(error);
+        }
       }
+
+      const uploadPostt = () => {
+        dispatch(uploadPost(newPost));
+      };
+      setTimeout(uploadPostt, 1500);
+
+      clearTimeout(uploadPostt);
+
+      reset();
     }
-
-    const uploadPostt = () => {
-      dispatch(uploadPost(newPost));
-    };
-    setTimeout(uploadPostt, 1500);
-
-    clearTimeout(uploadPostt);
-
-    reset();
   };
   return (
     <div className="PostShare">
