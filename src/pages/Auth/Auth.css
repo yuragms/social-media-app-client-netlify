@@ -1,5 +1,6 @@
 .Auth {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -43,6 +44,7 @@
 .Webname h6 {
   font-size: 0.85rem;
 }
+
 .infoForm {
   display: flex;
   flex-direction: column;
@@ -62,7 +64,7 @@
   display: flex;
   gap: 1rem;
   height: 2rem;
-  width: 90%;
+  /* width: 90%; */
 }
 
 .infoButton {
@@ -94,6 +96,12 @@
   }
   100% {
     opacity: 100%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .infoInput {
+    width: 100px;
   }
 }
 

@@ -62,3 +62,33 @@
   object-fit: cover;
   border-radius: 0.5rem;
 }
+
+@media screen and (max-width: 960px) {
+  .ps-button {
+    padding: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 10px;
+  }
+  .option {
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 10px;
+  }
+  .PostShare > img {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+  }
+  .option > svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 900px) {
+  .option:nth-of-type(4) {
+    display: none;
+  }
+}

@@ -40,3 +40,22 @@
   cursor: pointer;
   background: transparent;
 }
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
+  .fc-button {
+    height: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 500px) and (max-width: 600px) {
+  .fc-button {
+    height: 1.8rem;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .followerImage {
+    width: 3rem;
+    height: 3rem;
+  }
+}

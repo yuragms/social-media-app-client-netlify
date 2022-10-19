@@ -25,3 +25,8 @@
 .s-icon {
   cursor: pointer;
 }
+@media screen and (max-width: 1040px) {
+  .LogoSearch {
+    display: none;
+  }
+}
