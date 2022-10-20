@@ -19,7 +19,7 @@
   border-radius: 1rem;
   padding: 1rem;
   height: auto;
-  min-height: 80vh;
+  /* min-height: 80vh; */
   overflow: scroll;
 }
 
@@ -63,12 +63,33 @@
   justify-content: center;
   font-size: 20px;
 }
+@media screen and (max-width: 1000px) {
+  .Chat {
+    grid-template-columns: 25% auto;
+  }
+}
+@media screen and (max-width: 800px) {
+  .Chat {
+    grid-template-columns: 30% auto;
+  }
+}
+@media screen and (max-width: 700px) {
+  .Chat {
+    grid-template-columns: 40% auto;
+  }
+}
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 570px) {
+  .Chat {
+    grid-template-columns: auto;
+  }
+}
+
+/* @media screen and (max-width: 768px) {
   .Chat {
     grid-template-columns: 16% auto;
   }
   .follower.conversation > div > .name {
     display: none;
   }
-}
+} */

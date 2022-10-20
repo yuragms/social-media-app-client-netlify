@@ -21,6 +21,7 @@ const Chat = () => {
   const [currentChat, setCurrentChat] = useState(null);
   const [sendMessage, setSendMessage] = useState(null);
   const [recieveMessage, setRecieveMessage] = useState(null);
+  const [listChat, setListChat] = useState(true);
 
   useEffect(() => {
     const getChats = async () => {
@@ -66,6 +67,11 @@ const Chat = () => {
     return online ? true : false;
   };
 
+  const handleclick = () => {
+    setListChat((prev) => !prev);
+    console.log(listChat);
+  };
+
   return (
     <div className="Chat">
       {/* Left Side */}
@@ -73,22 +79,32 @@ const Chat = () => {
         <LogoSearch />
         <div className="Chat-container">
           <h2>Chats</h2>
-          <div className="Chat-list">
-            {chats.map((chat, id) => (
-              <div
-                key={id}
-                onClick={() => {
-                  setCurrentChat(chat);
-                }}
-              >
-                <Conversation
-                  data={chat}
-                  currentUserId={user._id}
-                  online={checkOnlineStatus(chat)}
-                />
-              </div>
-            ))}
-          </div>
+          <button
+            className={
+              listChat ? "button fc-button UnfollowButton" : "button fc-button"
+            }
+            onClick={handleclick}
+          >
+            {listChat ? "Close list chat" : "Open list chat"}
+          </button>
+          {listChat && (
+            <div className="Chat-list">
+              {chats.map((chat, id) => (
+                <div
+                  key={id}
+                  onClick={() => {
+                    setCurrentChat(chat);
+                  }}
+                >
+                  <Conversation
+                    data={chat}
+                    currentUserId={user._id}
+                    online={checkOnlineStatus(chat)}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       {/* Right Side */}
