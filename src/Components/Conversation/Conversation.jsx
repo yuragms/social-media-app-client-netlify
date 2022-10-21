@@ -32,12 +32,12 @@ const Conversation = ({ data, currentUserId, online }) => {
                   "avatar/defaultProfile.png"
             }
             alt=""
-            style={{ width: "50px", height: "50px" }}
+            // style={{ width: "50px", height: "50px" }}
+            className="followerImage"
           />
           <div className="name" style={{ fontSize: "0.8rem" }}>
             <span>
-              {userData?.firstname}
-              {userData?.lastname}
+              {userData?.firstname} {userData?.lastname}
             </span>
             <span>{online ? "Online" : "Offline"}</span>
           </div>
