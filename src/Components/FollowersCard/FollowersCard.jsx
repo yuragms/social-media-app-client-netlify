@@ -34,7 +34,8 @@ const FollowersCard = () => {
       </button>
       {loading
         ? "Fetching Users..."
-        : allUsers.map((person, id) => {
+        : listPeople &&
+          allUsers.map((person, id) => {
             if (person._id !== user._id) {
               return <User person={person} key={id} />;
             }
