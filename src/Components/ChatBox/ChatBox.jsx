@@ -5,7 +5,13 @@ import { addMessage, getMessages } from "../../api/MessageRequests";
 import { format } from "timeago.js";
 import InputEmoji from "react-input-emoji";
 
-const ChatBox = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
+const ChatBox = ({
+  chat,
+  currentUser,
+  setSendMessage,
+  recieveMessage,
+  online,
+}) => {
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
@@ -93,7 +99,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
             <div className="chat-header">
               <div className="follower">
                 <div>
-                  <div className="online-dot"></div>
+                  {online ? <div className="online-dot"></div> : ""}
                   <img
                     src={
                       userData?.profilePicture
