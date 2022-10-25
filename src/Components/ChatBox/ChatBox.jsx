@@ -114,8 +114,7 @@ const ChatBox = ({
                   />
                   <div className="name" style={{ fontSize: "0.9rem" }}>
                     <span>
-                      {userData?.firstname}
-                      {userData?.lastname}
+                      {userData?.firstname} {userData?.lastname}
                     </span>
                   </div>
                 </div>

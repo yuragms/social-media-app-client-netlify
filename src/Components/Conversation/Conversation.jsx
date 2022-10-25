@@ -39,7 +39,9 @@ const Conversation = ({ data, currentUserId, online }) => {
             <span>
               {userData?.firstname} {userData?.lastname}
             </span>
-            <span>{online ? "Online" : "Offline"}</span>
+            <span className={online ? "OnlineConversation" : ""}>
+              {online ? "Online" : "Offline"}
+            </span>
           </div>
         </div>
       </div>
