@@ -51,12 +51,7 @@ const Post = ({ data }) => {
       />
       <div className="btnLine">
         <div className="postReact">
-          <img
-            src={liked ? Heart : NotLike}
-            alt=""
-            style={{ cursor: "pointer" }}
-            onClick={handleLike}
-          />
+          <img src={liked ? Heart : NotLike} alt="" onClick={handleLike} />
           <img src={Comment} alt="" />
           <img src={Share} alt="" />
         </div>

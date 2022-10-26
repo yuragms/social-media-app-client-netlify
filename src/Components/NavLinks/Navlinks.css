@@ -13,4 +13,8 @@
 .navIcons > a > img {
   width: 1.5rem;
   height: 1.5rem;
+  transition-duration: 250ms;
+}
+.navIcons > a > img:hover {
+  transform: scale(1.3);
 }

@@ -5,12 +5,8 @@ import LogoSearch from "../../Components/LogoSearch/LogoSearch";
 import "./Chat.css";
 import { userChats } from "../../api/ChatRequest";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { UilSetting } from "@iconscout/react-unicons";
-import Home from "../../img/home.png";
-import Noti from "../../img/noti.png";
-import Comment from "../../img/comment.png";
 import { io } from "socket.io-client";
+import Navlinks from "../../Components/NavLinks/Navlinks";
 
 const Chat = () => {
   const socket = useRef();
@@ -111,18 +107,8 @@ const Chat = () => {
       </div>
       {/* Right Side */}
       <div className="Right-side-chat">
-        <div style={{ width: "20rem", alignSelf: "flex-end" }}>
-          <div className="navIcons">
-            <Link to="../home">
-              <img src={Home} alt="" />
-            </Link>
-            <UilSetting />
-            <img src={Noti} alt="" />
-            <Link to="../chat">
-              <img src={Comment} alt="" />
-            </Link>
-          </div>
-        </div>{" "}
+        <Navlinks />
+
         {/* chat body */}
         <ChatBox
           chat={currentChat}
