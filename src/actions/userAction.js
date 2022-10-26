@@ -45,6 +45,10 @@ export const getAllUsers = () => async (dispatch) => {
     dispatch({ type: "GET_ALL_USERS_SUCCESS", data: data });
   } catch (error) {
     dispatch({ type: "GET_ALL_USERS_FAIL" });
+    if (error.status === 401) {
+      alert("401")
+      dispatch({ type: "LOG_OUT" });
+    }
   }
 };
 
