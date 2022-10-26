@@ -1,5 +1,6 @@
 import * as UserApi from "../api/UserRequest";
 import { createChat } from "../api/ChatRequest";
+import toast from "react-hot-toast";
 
 export const updateUser = (id, formData) => async (dispatch) => {
   dispatch({ type: "UPDATING_START" });
@@ -23,6 +24,8 @@ export const followUser = (id, user) => async (dispatch) => {
     const { result } = await createChat({ senderId, receiverId });
     console.log("createChat work : ", result);
   } catch (error) {
+    console.log("");
+    toast.error(error.response.status);
     dispatch({ type: "FOLLOW_USER_FAIL" });
   }
 };
@@ -33,6 +36,7 @@ export const unFollowUser = (id, user) => async (dispatch) => {
     const { data } = await UserApi.unFollowUser(id, user);
     dispatch({ type: "UNFOLLOW_USER_SUCCESS", data: data });
   } catch (error) {
+    toast.error(error.response.status);
     dispatch({ type: "UNFOLLOW_USER_FAIL" });
   }
 };
@@ -45,6 +49,7 @@ export const getAllUsers = () => async (dispatch) => {
     dispatch({ type: "GET_ALL_USERS_SUCCESS", data: data });
   } catch (error) {
     dispatch({ type: "GET_ALL_USERS_FAIL" });
+    toast.error(error.response.status);
     if (error.response.status === 401) {
       dispatch({ type: "LOG_OUT" });
     }
