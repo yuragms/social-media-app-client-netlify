@@ -36,7 +36,8 @@ export const unFollowUser = (id, user) => async (dispatch) => {
     const { data } = await UserApi.unFollowUser(id, user);
     dispatch({ type: "UNFOLLOW_USER_SUCCESS", data: data });
   } catch (error) {
-    toast.error(error.response.status);
+    console.log(error);
+    toast.error(error.response.message);
     dispatch({ type: "UNFOLLOW_USER_FAIL" });
   }
 };
