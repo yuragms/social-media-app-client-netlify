@@ -50,7 +50,8 @@ export const getAllUsers = () => async (dispatch) => {
     dispatch({ type: "GET_ALL_USERS_SUCCESS", data: data });
   } catch (error) {
     dispatch({ type: "GET_ALL_USERS_FAIL" });
-    toast.error(error.response.status);
+    console.log(error);
+    toast.error(error.response.message);
     if (error.response.status === 401) {
       dispatch({ type: "LOG_OUT" });
     }
