@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 import { useState } from "react";
 import { uploadImage } from "../../actions/uploadAction";
 import { updateUser } from "../../actions/userAction";
+import { useMediaQuery } from "react-responsive";
+import "./ProfileModal.css";
 
 function ProfileModal({ modalOpened, setModalOpened, data }) {
   const theme = useMantineTheme();
@@ -13,6 +15,15 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
   const [coverImage, setCoverImage] = useState(null);
   const dispatch = useDispatch();
   const param = useParams();
+  const isMin1400 = useMediaQuery({
+    query: "(min-width: 1400px)",
+  });
+  const isMin1100 = useMediaQuery({
+    query: "(min-width: 1100px)",
+  });
+  const isMin570 = useMediaQuery({
+    query: "(min-width: 570px)",
+  });
 
   // const { user } = useSelector((state) => state.authReducer.authData);
 
@@ -82,16 +93,17 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
       }
       overlayOpacity={0.55}
       overlayBlur={3}
-      size="55%"
+      size={isMin1400 ? "55%" : isMin1100 ? "65%" : isMin570 ? "85%" : "95%"}
       opened={modalOpened}
       onClose={() => setModalOpened(false)}
     >
-      <form className="infoForm">
+      <form className="infoFormModal">
         <h3>Your info</h3>
+        {/* <div> */}
         <div>
           <input
             type="text"
-            className="infoInput"
+            className="infoInputModal"
             name="firstname"
             placeholder="First Name"
             onChange={handleChange}
@@ -99,7 +111,7 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
           />
           <input
             type="text"
-            className="infoInput"
+            className="infoInputModal"
             name="lastname"
             placeholder="Last Name"
             onChange={handleChange}
@@ -119,7 +131,7 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
         <div>
           <input
             type="text"
-            className="infoInput"
+            className="infoInputModal"
             name="livesin"
             placeholder="Lives in"
             onChange={handleChange}
@@ -127,7 +139,7 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
           />
           <input
             type="text"
-            className="infoInput"
+            className="infoInputModal"
             name="country"
             placeholder="Country"
             onChange={handleChange}
@@ -137,20 +149,25 @@ function ProfileModal({ modalOpened, setModalOpened, data }) {
         <div>
           <input
             type="text"
-            className="infoInput"
+            className="infoInputModal"
             placeholder="RelationShip Status"
             name="relationship"
             onChange={handleChange}
             value={formData.relationship}
           />
         </div>
-        <div>
-          Profile Image
-          <input type="file" name="profileImage" onChange={onImageChange} />
-          Cover Image
-          <input type="file" name="coverImage" onChange={onImageChange} />
+        {/* </div> */}
+        <div className="inputImageModal">
+          <div>
+            Profile Image
+            <input type="file" name="profileImage" onChange={onImageChange} />
+          </div>
+          <div>
+            Cover Image
+            <input type="file" name="coverImage" onChange={onImageChange} />
+          </div>
         </div>
-        <button className="button infoButton" onClick={handleSubmit}>
+        <button className="button infoButton modalBtn" onClick={handleSubmit}>
           Update
         </button>
       </form>

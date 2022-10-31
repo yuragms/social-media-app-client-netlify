@@ -1,0 +1,46 @@
+.infoFormModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.infoFormModal > div {
+  display: flex;
+  gap: 1rem;
+  height: 2rem;
+  width: 90%;
+}
+.inputImageModal {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.modalBtn {
+  margin-top: 3rem;
+}
+.infoInputModal {
+  border: none;
+  outline: none;
+  background-color: var(--inputColor);
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1;
+}
+
+@media screen and (max-width: 510px) {
+  .infoInputModal {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .infoInputModal {
+    width: 80px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .infoInputModal {
+    width: 70px;
+  }
+}
