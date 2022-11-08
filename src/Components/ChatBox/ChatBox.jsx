@@ -109,7 +109,11 @@ const ChatBox = ({
                           "avatar/defaultProfile.png"
                     }
                     alt="Profile"
-                    style={{ width: "50px", height: "50px" }}
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50%",
+                    }}
                     className="follwerImage"
                   />
                   <div className="name" style={{ fontSize: "0.9rem" }}>
