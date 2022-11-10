@@ -53,9 +53,10 @@ const Chat = () => {
   //receive Message from socket server
   useEffect(() => {
     socket.current.on("recieve-message", (data) => {
-      setRecieveMessage(data);
       const chat = chats.find((chat) => chat._id === data.chatId);
       setCurrentChat(chat);
+      console.log("CurrentChat: ", chat);
+      setRecieveMessage(data);
       // colorPickerOptions.find((option) => option.label === "blue");
       //       console.log("CurrentChat: ", data.chatId);
     });
