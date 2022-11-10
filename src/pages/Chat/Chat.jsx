@@ -92,6 +92,7 @@ const Chat = () => {
                   key={id}
                   onClick={() => {
                     setCurrentChat(chat);
+                    console.log("CurrentChat: ", chat);
                   }}
                 >
                   <Conversation
