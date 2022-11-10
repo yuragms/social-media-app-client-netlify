@@ -62,9 +62,11 @@ const Chat = () => {
       const uploadPosttt = () => {
         setRecieveMessage(data);
       };
-      setTimeout(uploadPosttt, 1200);
+      if (chat1 || currentChat) {
+        setTimeout(uploadPosttt, 1200);
 
-      clearTimeout(uploadPosttt);
+        clearTimeout(uploadPosttt);
+      }
 
       // colorPickerOptions.find((option) => option.label === "blue");
       //       console.log("CurrentChat: ", data.chatId);
