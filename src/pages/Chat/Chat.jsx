@@ -105,6 +105,7 @@ const Chat = () => {
           )}
         </div>
       </div>
+
       {/* Right Side */}
       <div className="Right-side-chat">
         <Navlinks />

@@ -84,6 +84,7 @@ const ChatBox = ({
     console.log("Message Arrived: ", recieveMessage);
     if (recieveMessage !== null && recieveMessage.chatId === chat._id) {
       setMessages([...messages, recieveMessage]);
+      chat = recieveMessage.chatId;
       // setMessages((prev) => prev, recieveMessage);
     }
   }, [recieveMessage]);
