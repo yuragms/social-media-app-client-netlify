@@ -53,7 +53,7 @@ const Chat = () => {
   //receive Message from socket server
   useEffect(() => {
     socket.current.on("recieve-message", (data) => {
-      console.log("recieve-message put1");
+      console.log("recieve-message put data: ", data);
       const chat1 = chats.find((chat) => chat._id === data.chatId);
       console.log("recieve-message put2");
       setCurrentChat(chat1);
