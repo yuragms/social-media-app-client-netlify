@@ -53,32 +53,33 @@ const Chat = () => {
   //receive Message from socket server
   useEffect(() => {
     console.log("recieve-message put2 chats", chats);
-    const aaa = (chats) => {
-      socket.current.on("recieve-message", (data) => {
-        console.log("recieve-message put data: ", data);
-        console.log("recieve-message put2 chats", chats);
-
-        const chat1 = chats.find((option) => option._id === data.chatId);
-        setCurrentChat(chat1);
-        console.log("CurrentChat: ", chat1);
-
-        const uploadPosttt = () => {
-          setRecieveMessage(data);
-        };
-        if (chat1 || currentChat) {
-          setTimeout(uploadPosttt, 1200);
-
-          clearTimeout(uploadPosttt);
-        }
-
-        // setRecieveMessage(data);
-        // colorPickerOptions.find((option) => option.label === "blue");
-        //       console.log("CurrentChat: ", data.chatId);
-
-        // setRecieveMessage(data);
-      });
+    const bbb = (chats) => {
+      chats.find((option) => option._id === data.chatId);
     };
-    setTimeout(aaa, 1200);
+
+    socket.current.on("recieve-message", (data) => {
+      console.log("recieve-message put data: ", data);
+      console.log("recieve-message put2 chats", chats);
+
+      // const chat1 = chats.find((option) => option._id === data.chatId);
+      setCurrentChat(bbb);
+      console.log("CurrentChat: ", bbb);
+
+      const uploadPosttt = () => {
+        setRecieveMessage(data);
+      };
+      if (bbb || currentChat) {
+        setTimeout(uploadPosttt, 1200);
+
+        clearTimeout(uploadPosttt);
+      }
+
+      // setRecieveMessage(data);
+      // colorPickerOptions.find((option) => option.label === "blue");
+      //       console.log("CurrentChat: ", data.chatId);
+
+      // setRecieveMessage(data);
+    });
   }, [chats]);
 
   const checkOnlineStatus = (chat) => {
