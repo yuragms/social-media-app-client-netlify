@@ -52,6 +52,7 @@ const Chat = () => {
 
   //receive Message from socket server
   useEffect(() => {
+    console.log("recieve-message put2 chats", chats);
     const aaa = () => {
       socket.current.on("recieve-message", (data) => {
         console.log("recieve-message put data: ", data);
@@ -78,7 +79,7 @@ const Chat = () => {
       });
     };
     setTimeout(aaa, 1200);
-  }, []);
+  }, [chats]);
 
   const checkOnlineStatus = (chat) => {
     if (chat) {
