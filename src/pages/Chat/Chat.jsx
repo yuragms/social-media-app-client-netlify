@@ -58,15 +58,16 @@ const Chat = () => {
       const chat1 = chats.find((option) => option._id === data.chatId);
       setCurrentChat(chat1);
       console.log("CurrentChat: ", chat1);
+      setRecieveMessage(data);
 
-      const uploadPosttt = () => {
-        setRecieveMessage(data);
-      };
-      if (chat1 || currentChat) {
-        setTimeout(uploadPosttt, 1200);
+      // const uploadPosttt = () => {
+      //   setRecieveMessage(data);
+      // };
+      // if (chat1 || currentChat) {
+      //   setTimeout(uploadPosttt, 1200);
 
-        clearTimeout(uploadPosttt);
-      }
+      //   clearTimeout(uploadPosttt);
+      // }
 
       // colorPickerOptions.find((option) => option.label === "blue");
       //       console.log("CurrentChat: ", data.chatId);
