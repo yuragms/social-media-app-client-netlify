@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Auth.css";
 import Logo from "../../img/logo.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +18,10 @@ const Auth = () => {
     username: "",
   });
   const [confirmPass, setConfirmPass] = useState(true);
+
+  useEffect(() => {
+    dispatch({ type: "RESET_AUTH_ERROR" });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
