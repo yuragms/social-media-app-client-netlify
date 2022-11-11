@@ -119,7 +119,7 @@ const Auth = () => {
             )}
           </div>
           <div>
-            {error && (
+            {(error || !confirmPass) && (
               <p className="Error">
                 {error === 404
                   ? "This username does not exist"
@@ -129,12 +129,14 @@ const Auth = () => {
                     : "password not valid for this username"
                   : error === 500
                   ? "Please fill in all fields"
-                  : error}
+                  : confirmPass
+                  ? error
+                  : "Confirm Password is not same!"}
               </p>
             )}
           </div>
 
-          <span
+          {/* <span
             style={{
               display: confirmPass ? "none" : "block",
               color: "red",
@@ -144,7 +146,7 @@ const Auth = () => {
             }}
           >
             * Confirm Password is not same!
-          </span>
+          </span> */}
           <div>
             <span
               style={{ fontSize: "12px", cursor: "pointer" }}
