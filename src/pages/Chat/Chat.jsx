@@ -73,7 +73,7 @@ const Chat = () => {
 
       // setRecieveMessage(data);
     });
-  }, [сurrentChat]);
+  }, [recieveMessage]);
 
   const checkOnlineStatus = (chat) => {
     if (chat) {
