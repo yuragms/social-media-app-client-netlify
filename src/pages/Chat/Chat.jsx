@@ -53,7 +53,7 @@ const Chat = () => {
   //receive Message from socket server
   useEffect(() => {
     console.log("recieve-message put2 chats", chats);
-    const bbb = (chats) => {
+    const bbb = (data) => {
       chats.find((option) => option._id === data.chatId);
     };
 
