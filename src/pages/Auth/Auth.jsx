@@ -25,8 +25,12 @@ const Auth = () => {
 
     if (isSignUp) {
       data.password === data.confirmpass
+        ? setConfirmPass(true)
+        : setConfirmPass(false);
+      data.password === data.confirmpass
         ? dispatch(signUp(data))
         : setConfirmPass(false);
+
       // if (data.password !== data.confirmpass) {
       //   setConfirmPass(false);
       // } else {
@@ -119,7 +123,7 @@ const Auth = () => {
             )}
           </div>
           <div>
-            {(error || !confirmPass) && (
+            {error && (
               <p className="Error">
                 {error === 404
                   ? "This username does not exist"
@@ -129,11 +133,14 @@ const Auth = () => {
                     : "password not valid for this username"
                   : error === 500
                   ? "Please fill in all fields"
-                  : confirmPass
-                  ? error
-                  : "Confirm Password is not same!"}
+                  : error}
               </p>
             )}
+          </div>
+          <div>
+            <p className="Error">
+              {confirmPass ? "" : "Confirm Password is not same!"}
+            </p>
           </div>
 
           {/* <span
