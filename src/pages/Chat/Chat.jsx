@@ -53,7 +53,7 @@ const Chat = () => {
   //receive Message from socket server
   useEffect(() => {
     console.log("recieve-message put2 chats", chats);
-    const aaa = () => {
+    const aaa = (chats) => {
       socket.current.on("recieve-message", (data) => {
         console.log("recieve-message put data: ", data);
         console.log("recieve-message put2 chats", chats);
