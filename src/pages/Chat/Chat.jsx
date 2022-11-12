@@ -52,14 +52,14 @@ const Chat = () => {
 
   //receive Message from socket server
   useEffect(() => {
-    socket.current.on("recieve-message", (data) => {
-      console.log("recieve-message put data: ", data);
+    socket.current.on("recieve-message", (data1) => {
+      console.log("recieve-message put data: ", data1);
 
       if (!currentChat) {
-        console.log("!currentChat work");
-        const { chats } = userChats(user._id);
-        console.log("recieve-message put2 chats", chats);
-        const chat1 = chats.find((option) => option._id === data.chatId);
+        console.log("!currentChat work", user._id);
+        const { data } = userChats(user._id);
+        console.log("recieve-message put2 chats", data);
+        const chat1 = data.find((option) => option._id === data1.chatId);
 
         setCurrentChat(chat1);
         console.log("CurrentChat: ", chat1);
