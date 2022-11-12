@@ -65,7 +65,7 @@ const Chat = () => {
         console.log("CurrentChat: ", chat1);
       }
 
-      setRecieveMessage(data);
+      setRecieveMessage(data1);
 
       // const uploadPosttt = () => {
       //   setRecieveMessage(data);
