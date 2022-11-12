@@ -58,7 +58,7 @@ const Chat = () => {
 
       if (!currentChat) {
         const { chats } = userChats(user._id);
-        chat1 = chats.find((option) => option._id === data.chatId);
+        const chat1 = chats.find((option) => option._id === data.chatId);
         setCurrentChat(chat1);
         console.log("CurrentChat: ", chat1);
       }
