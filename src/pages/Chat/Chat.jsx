@@ -62,7 +62,7 @@ const Chat = () => {
         setRecieveMessage(data);
       };
       if (!currentChat) {
-        setTimeout(uploadPosttt, 800);
+        setTimeout(uploadPosttt, 300);
 
         clearTimeout(uploadPosttt);
       }
