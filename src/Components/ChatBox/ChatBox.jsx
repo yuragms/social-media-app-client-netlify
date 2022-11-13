@@ -48,7 +48,7 @@ const ChatBox = ({
       }
     };
     if (chat !== null) fetchMessages();
-  }, [chat]);
+  }, [chat, recieveMessage]);
 
   //Always scroll to last message
   useEffect(() => {
@@ -80,14 +80,14 @@ const ChatBox = ({
   };
 
   // Receive Message from parent component
-  useEffect(() => {
-    console.log("Message Arrived: ", recieveMessage);
-    if (recieveMessage !== null && recieveMessage.chatId === chat._id) {
-      setMessages([...messages, recieveMessage]);
+  // useEffect(() => {
+  //   console.log("Message Arrived: ", recieveMessage);
+  //   if (recieveMessage !== null && recieveMessage.chatId === chat._id) {
+  //     setMessages([...messages, recieveMessage]);
 
-      // setMessages((prev) => prev, recieveMessage);
-    }
-  }, [recieveMessage]);
+  // setMessages((prev) => prev, recieveMessage);
+  //   }
+  // }, [recieveMessage]);
 
   const scroll = useRef();
   const imageRef = useRef();
