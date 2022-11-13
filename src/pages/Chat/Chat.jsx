@@ -55,17 +55,17 @@ const Chat = () => {
     socket.current.on("recieve-message", (data) => {
       console.log("recieve-message put data: ", data);
       console.log("recieve-message put2 chats", chats);
-      const chat1 = chats.find((option) => option._id === data.chatId);
-      setCurrentChat(chat1);
-
+      if (!currentChat) {
+        const chat1 = chats.find((option) => option._id === data.chatId);
+        setCurrentChat(chat1);
+      }
       const uploadPosttt = () => {
         setRecieveMessage(data);
       };
-      if (!currentChat) {
-        setTimeout(uploadPosttt, 300);
 
-        clearTimeout(uploadPosttt);
-      }
+      setTimeout(uploadPosttt, 300);
+
+      clearTimeout(uploadPosttt);
 
       // setCurrentChat(chat1);
 
