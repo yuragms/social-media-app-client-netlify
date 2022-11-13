@@ -56,7 +56,15 @@ const Chat = () => {
       console.log("recieve-message put data: ", data);
       console.log("recieve-message put2 chats", chats);
       const chat1 = chats.find((option) => option._id === data.chatId);
-      setTimeout(setCurrentChat(chat1), 1200);
+      const uploadPosttt = () => {
+        setCurrentChat(chat1);
+      };
+      if (currentChat) {
+        setTimeout(uploadPosttt, 1200);
+
+        clearTimeout(uploadPosttt);
+      }
+
       // setCurrentChat(chat1);
       console.log("CurrentChat: ", chat1);
       setRecieveMessage(data);
