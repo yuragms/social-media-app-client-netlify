@@ -58,6 +58,7 @@ const Chat = () => {
       const chat1 = chats.find((option) => option._id === data.chatId);
       const uploadPosttt = () => {
         setCurrentChat(chat1);
+        console.log("Timeout: ", chat1);
       };
       if (currentChat) {
         setTimeout(uploadPosttt, 1200);
