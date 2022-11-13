@@ -24,6 +24,7 @@ const ChatBox = ({
   useEffect(() => {
     const userId = chat?.members?.find((id) => id !== currentUser);
     const getUserData = async () => {
+      console.log("fetching data for header Ok");
       try {
         const { data } = await getUser(userId);
         setUserData(data);
@@ -37,6 +38,7 @@ const ChatBox = ({
   // fetching data for messages
   useEffect(() => {
     const fetchMessages = async () => {
+      console.log("fetching data for messages Ok");
       try {
         console.log(chat._id);
         const { data } = await getMessages(chat._id);
@@ -47,7 +49,8 @@ const ChatBox = ({
         console.log(error);
       }
     };
-    if (chat !== null) fetchMessages();
+    // if (chat !== null) fetchMessages();
+    if (!chat) fetchMessages();
   }, [chat, recieveMessage]);
 
   //Always scroll to last message
