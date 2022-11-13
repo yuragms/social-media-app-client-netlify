@@ -49,8 +49,7 @@ const ChatBox = ({
         console.log(error);
       }
     };
-    // if (chat !== null) fetchMessages();
-    if (!chat) fetchMessages();
+    if (chat !== null) fetchMessages();
   }, [chat, recieveMessage]);
 
   //Always scroll to last message
