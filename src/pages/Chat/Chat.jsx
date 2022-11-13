@@ -60,7 +60,7 @@ const Chat = () => {
         setCurrentChat(chat1);
         console.log("Timeout: ", chat1);
       };
-      if (currentChat) {
+      if (!currentChat) {
         setTimeout(uploadPosttt, 1200);
 
         clearTimeout(uploadPosttt);
