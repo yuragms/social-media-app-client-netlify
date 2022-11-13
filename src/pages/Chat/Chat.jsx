@@ -54,7 +54,7 @@ const Chat = () => {
   useEffect(() => {
     socket.current.on("recieve-message", (data) => {
       console.log("recieve-message put data: ", data);
-      setReceivedMessage(data);
+      setRecieveMessage(data);
       // if (!currentChat) {
       //   const chat1 = chats.find((option) => option._id === data.chatId);
       //   setCurrentChat(chat1);
