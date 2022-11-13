@@ -54,39 +54,20 @@ const Chat = () => {
   useEffect(() => {
     socket.current.on("recieve-message", (data) => {
       console.log("recieve-message put data: ", data);
-      console.log("recieve-message put2 chats", chats);
-      if (!currentChat) {
-        const chat1 = chats.find((option) => option._id === data.chatId);
-        setCurrentChat(chat1);
-      }
-      const uploadPosttt = () => {
-        setRecieveMessage(data);
-      };
-
-      setTimeout(uploadPosttt, 300);
-
-      clearTimeout(uploadPosttt);
-
-      // setCurrentChat(chat1);
-
-      // setRecieveMessage(data);
-
+      setReceivedMessage(data);
+      // if (!currentChat) {
+      //   const chat1 = chats.find((option) => option._id === data.chatId);
+      //   setCurrentChat(chat1);
+      // }
       // const uploadPosttt = () => {
       //   setRecieveMessage(data);
       // };
-      // if (currentChat) {
-      //   setTimeout(uploadPosttt, 1200);
 
-      //   clearTimeout(uploadPosttt);
-      // }
+      // setTimeout(uploadPosttt, 300);
 
-      // setRecieveMessage(data);
-      // colorPickerOptions.find((option) => option.label === "blue");
-      //       console.log("CurrentChat: ", data.chatId);
-
-      // setRecieveMessage(data);
+      // clearTimeout(uploadPosttt);
     });
-  }, [chats]);
+  }, []);
 
   const checkOnlineStatus = (chat) => {
     if (chat) {
