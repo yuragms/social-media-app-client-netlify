@@ -22,7 +22,9 @@ const ChatBox = ({
 
   // fetching data for header
   useEffect(() => {
-    const userId = chat?.members?.find((id) => id !== currentUser);
+    if (chat !== null) {
+      const userId = chat?.members?.find((id) => id !== currentUser);
+    }
     const getUserData = async () => {
       console.log("fetching data for header Ok");
       try {
@@ -32,7 +34,9 @@ const ChatBox = ({
         console.log(error);
       }
     };
-    if (chat !== null) getUserData();
+    if (chat !== null) {
+      getUserData();
+    }
   }, [chat, currentUser]);
 
   // fetching data for messages
