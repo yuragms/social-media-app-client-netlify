@@ -2,10 +2,9 @@ import axios from 'axios';
 
 const API = axios.create({
   baseURL: process.env.REACT_APP_PUBLIC_SERVER_HEROKKU,
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Content-Type': 'application/json',
-  },
+  // headers: {
+  //   'Access-Control-Allow-Origin': '*',
+  // },
 });
 // const API = axios.create({
 //   baseURL: 'https://social-mediapp-mongo-noda3.herokuapp.com',
