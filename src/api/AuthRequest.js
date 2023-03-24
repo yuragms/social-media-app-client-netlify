@@ -4,7 +4,7 @@ const API = axios.create({
   baseURL: process.env.REACT_APP_PUBLIC_SERVER_HEROKKU,
   headers: {
     'Access-Control-Allow-Origin':
-      'https://social-mediapp-mongo-noda3.herokuapp.com',
+      '*',
   },
 });
 // const API = axios.create({
